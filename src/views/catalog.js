@@ -5,9 +5,9 @@ const catalogTemplate = (offers) => html`
     <section id="dashboard">
         <h2>Supplies</h2>
         <ul class="offer-wrapper">
-            <!-- Display offers if there are any -->
+            <!-- Display products if there are any -->
             ${offers.length === 0
-            ? html`<h2>No offers yet.</h2>`
+            ? html`<h2>There are no products yet.</h2>`
             : offers.map(offerCard)}
         </ul>
     </section>
