@@ -43,7 +43,7 @@ header a {
 }
 
 footer {
-  background-color: #e0ecf1;
+  background-color: #e0ecf1; /*#7d7e7e*/ /*#e0ecf1*/
   color: black;
   font-weight: bolder;
   text-align: center;
@@ -54,6 +54,7 @@ footer {
   width: 100%;
   height: 30px;
 }
+
 
 section {
   margin-bottom: 100px;

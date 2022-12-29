@@ -16,7 +16,7 @@ const createTemplate = (onSubmit) => html`
                         type="text"
                         name="imageUrl"
                         id="job-logo"
-                        placeholder="Company logo url"
+                        placeholder="Item picture"
                 />
                 <input
                         type="text"
@@ -32,17 +32,17 @@ const createTemplate = (onSubmit) => html`
                         cols="50"
                 ></textarea>
                 <textarea
-                        id="job-requirements"
-                        name="requirements"
-                        placeholder="Requirements"
+                        id="item-info"
+                        name="info"
+                        placeholder="Additional info"
                         rows="4"
-                        cols="50"
+                        cols="20"
                 ></textarea>
                 <input
                         type="text"
-                        name="salary"
-                        id="job-salary"
-                        placeholder="Salary"
+                        name="price"
+                        id="item-price"
+                        placeholder="Price"
                 />
 
                 <button type="submit">create</button>
@@ -64,11 +64,11 @@ export function createView(ctx) {
             imageUrl: formData.get('imageUrl'),
             category: formData.get('category'),
             description: formData.get('description'),
-            requirements: formData.get('requirements'),
-            salary: formData.get('salary')
+            info: formData.get('info'),
+            price: formData.get('price')
         }
 
-        if (offer.title === '' || offer.imageUrl === '' || offer.category === '' || offer.description === '' || offer.requirements === '' || offer.salary === '') {
+        if (offer.title === '' || offer.imageUrl === '' || offer.category === '' || offer.description === '' || offer.info === '' || offer.price === '') {
             return alert('All fields are required!');
         }
 

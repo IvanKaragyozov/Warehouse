@@ -4,24 +4,24 @@ import { html } from '../library.js';
 const catalogTemplate = (offers) => html`
     <section id="dashboard">
         <h2>Supplies</h2>
-
-        <!-- Display a div with information about every post (if any)-->
-        ${offers.length === 0
-        ? html`<h2>No offers yet.</h2>`
-        : offers.map(offerCard)}
-
+        <ul class="offer-wrapper">
+            <!-- Display offers if there are any -->
+            ${offers.length === 0
+            ? html`<h2>No offers yet.</h2>`
+            : offers.map(offerCard)}
+        </ul>
     </section>
 `;
 
 const offerCard = (offer) => html`
-    <div class="offer">
-        <img src="${offer.imageUrl}" alt="example1" />
+    <li class="offer">
+        <img src="${offer.imageUrl}" alt="example1"/>
         <p>
-            <strong>Title: </strong><span class="title">${offer.title}</span>
+            <strong><span class="title">${offer.title}</span></strong>
         </p>
-        <p><strong>Salary:</strong><span class="salary">${offer.salary}</span></p>
+        <p><strong>Price:</strong><span class="price">${offer.price} $</span></p>
         <a class="details-btn" href="/offers/${offer._id}">Details</a>
-    </div>
+    </li>
 `;
 
 

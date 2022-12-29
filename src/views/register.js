@@ -62,7 +62,7 @@ export function registerView(ctx){
 
         const usernameRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[_]).{5,15}/;
         const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[@-_~|]).{6,20}/;
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[@-_~|]).{6,20}/; // /^(?=.*[A-Z])(?=.*[a-z])(?=.*[@|-|_])[\S]{6,20}$/
 
         if (username === '' || email === '' || password === '' || repeatPass === '') {
             return alert('All fields are required!');
@@ -72,13 +72,20 @@ export function registerView(ctx){
             return alert('Invalid username!');
         }
 
+        if (!username.includes("_")){
+            return alert('Username must contain _ !');
+        }
+
         if (emailRegex.test(email) === false) {
             return alert("Invalid email address!");
         }
 
+
         if (password !== repeatPass) {
             return alert("Passwords don't match!");
         }
+
+
         if (passwordRegex.test(password) === false){
             return alert("Invalid password!");
         }

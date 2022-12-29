@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:300);*/
 
 .login-page {
   width: 360px;
@@ -16,6 +16,7 @@
 }
 
 .form h2 {
+  margin-top: 0;
   margin-bottom: 50px;
   font-size: 30px;
 }

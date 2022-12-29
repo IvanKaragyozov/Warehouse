@@ -29,14 +29,14 @@ export function loginView(ctx){
         event.preventDefault();
         const formData = new FormData(event.target);
 
-        const email = formData.get('username').trim();
+        const username = formData.get('username').trim();
         const password = formData.get('password').trim();
 
-        if(email === '' || password === '') {
+        if(username === '' || password === '') {
             return alert('All fields are required!');
         }
 
-        await login(email, password);
+        await login(username, password);
         ctx.updateNav();
         ctx.page.redirect('/offers');
     }

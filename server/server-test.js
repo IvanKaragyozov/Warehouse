@@ -1,11 +1,34 @@
-const express = require('express');
+const http = require('http');
+const page = require('page');
 
-const app = express();
+page('/api/users', (ctx) => {
+    // handle a GET request to the '/api/users' endpoint
+    ctx.res.end('You requested a list of users');
+});
 
-const ports = process.env.PORT || 3000; // if port is not defined listen on 3000
+page('/users/register', (username, email, password, ctx) => {
+    // handle a POST request to the '/api/users' endpoint
+    ctx.res.end('You created a new user');
+}, {
+    method: 'post'
+});
 
-app.get('/', (req, res) => {
-    res.send("Hello!");
-})
+page('/api/users/:id', (ctx) => {
+    // handle a PUT request to the '/api/users/:id' endpoint
+    ctx.res.end(`You updated user ${ctx.params.id}`);
+}, {
+    method: 'put'
+});
 
-app.listen(ports , () => console.log(`listening on ${ports}`));
+page('/api/users/:id', (ctx) => {
+    // handle a DELETE request to the '/api/users/:id' endpoint
+    ctx.res.end(`You deleted user ${ctx.params.id}`);
+}, {
+    method: 'delete'
+});
+
+http.createServer((req, res) => {
+    page(req, res);
+}).listen(3000, () => {
+    console.log('Server listening on port 3000');
+});

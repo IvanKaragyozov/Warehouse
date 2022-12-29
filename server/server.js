@@ -129,8 +129,8 @@
 
       res.writeHead(status, headers);
       if (
-        context != undefined &&
-        context.util != undefined &&
+        context !== undefined &&
+        context.util !== undefined &&
         context.util.throttle
       ) {
         await new Promise((r) => setTimeout(r, 500 + Math.random() * 500));
@@ -145,14 +145,14 @@
 
       async function handle(context) {
         const { serviceName, tokens, query, body } = await parseRequest(req);
-        if (serviceName == "admin") {
+        if (serviceName === "admin") {
           return ({ headers, result } = services["admin"](
             method,
             tokens,
             query,
             body
           ));
-        } else if (serviceName == "favicon.ico") {
+        } else if (serviceName === "favicon.ico") {
           return ({ headers, result } = services["favicon"](
             method,
             tokens,
@@ -1441,42 +1441,42 @@
     offers: {
       "1840a313-225c-416a-817a-9954d4609f7c": {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-        title: "Senior Frontend Software Engineer",
-        imageUrl: "../images/example2.png",
-        category: "IT, Developer, WEB",
+        title: "Castrol Edge oil",
+        imageUrl: "../images/edge_5W-40.jpg",
+        category: "Oils",
         description:
-          "We are looking for programmers with a keen eye for design for the position of front end developer. Front end developers are responsible for ensuring the alignment of web design and user experience requirements, optimizing web pages for maximum efficiency, and maintaining brand consistency across all web pages, among other duties.",
-        requirements:
-          "Degree in computer science or related field. Understanding of key design principles. Proficiency in HTML, CSS, JavaScript. Experience with responsive and adaptive design. Good problem-solving skills. Excellent verbal communication skills. Good interpersonal skills.",
-        salary: "7000",
+          "5W-40 1L oil.",
+        info:
+          "Manufacturer: Castrol",
+        price: "20",
         _createdOn: 1617194210928,
       },
       "126777f5-3277-42ad-b874-76d043b069cb": {
         _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-        title: "Sales Manager",
-        imageUrl: "../images/example1.png",
-        category: "Sales, Administration, Analyze",
+        title: "Toolbox",
+        imageUrl: "../images/toolbox.jpg",
+        category: "Accessories",
         description:
-          "A sales manager is someone who is responsible for leading and guiding a team of sales people in an organization. They set sales goals & quotas, build a sales plan, analyze data, assign sales training and sales territories, mentor the members of his/her sales team and are involved in the hiring and firing process.",
-        requirements:
-          "Managing organizational sales by developing a business plan that covers sales, revenue, and expense controls. Meeting planned sales goals. Setting individual sales targets with the sales team. Tracking sales goals and reporting results as necessary. Overseeing the activities and performance of the sales team.",
-        salary: "1900",
+          "It included multiple departments for tools.",
+        info:
+          "Manufactured by Parkside.",
+        price: "30",
         _createdOn: 1617194295474,
       },
       "136777f5-3277-42ad-b874-76d043b069cb": {
         _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-        title: "Invoice Administrator",
-        imageUrl: "../images/example3.png",
-        category: "Finance, Administration, Data Capture",
+        title: "Pliers",
+        imageUrl: "../images/pliers.jpg",
+        category: "Tools",
         description:
-          "The manager will oversee quality assurance, quality control, and customer service regarding the invoicing process; ensure adherence to proper invoicing procedures; and interpret and clarify invoicing policies. We are looking for individuals who have a passion for making a difference in the lives of people around the world.",
-        requirements:
-          "Experience with SQL-based accounting software and demonstrated ability to learn and operate new systems in a short period. Experience with accounts payable, general ledger, and client invoicing. Experience with accounting software; Solomon IV experience preferred. Ability to solve technical, managerial, or operational problems and evaluate options based on relevant information, resources, well-rounded experience, and knowledge.",
-        salary: "1700",
+          "Simple but very reliable pliers",
+        info:
+          "Manufactured by Vigor.",
+        price: "5",
         _createdOn: 1617194295480,
       },
     },
-    applications: {},
+    quantity: {},
   };
   var rules$1 = {
     users: {

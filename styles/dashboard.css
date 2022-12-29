@@ -9,20 +9,44 @@ h2 {
 }
 
 .offer img {
-  margin-right: 50px;
-  height: 170px;
-  width: 170px;
+  /*margin-right: 50px;*/
+  margin: auto;
+  height: 180px;
+  width: 50%;
 }
 
 .title,
-.salary {
+.price {
   font-size: 21px;
+}
+
+/*.offer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 70%;
+  margin: 25px auto;
+  background-color: white;
+  border-radius: 5px;
+  border: 2px ridge rgb(210, 208, 208);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.24);
+}*/
+
+.offer-wrapper {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.offer-wrapper h2 {
+  margin: 10px;
 }
 
 .offer {
   display: flex;
-  justify-content: space-between;
-  max-width: 70%;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 23%;
+  height: 500px;
   margin: 25px auto;
   background-color: white;
   border-radius: 5px;
@@ -38,13 +62,22 @@ h2 {
   padding: 10px;
   text-align: center;
   color: white;
-  background: #5c9596;
+  background: #5c9596; /*#5c9596*/ /*#7c7e7e*/
 }
 
-.offer p {
+/*.offer p {
   margin: auto;
   font-size: 21px;
   min-width: 25%;
+  max-width: 30%;
+  text-align: center;
+}*/
+
+.offer p {
+  min-width: 90%;
+  margin: auto;
+  font-size: 21px;
+  max-height: 50px;
   max-width: 30%;
   text-align: center;
 }
