@@ -6,12 +6,15 @@ export const detailsTemplate = (offer, isUser, onDelete) => html`
     <section id="details">
         <div id="details-wrapper">
             <img id="details-img" src="${offer.imageUrl}" alt="example1"/>
-            <p id="details-title">${offer.title}</p>
+            <p id="details-title">${offer.name}</p>
             <p id="details-category">
                 Category: <span id="categories">${offer.category}</span>
             </p>
             <p id="details-price">
-                Price: <span id="price-number">${offer.price} $</span>
+                Bought price: <span id="price-number">${offer.buyPrice} $</span>
+            </p>
+            <p id="details-price">
+                Selling price: <span id="sellPrice-number">${offer.sellPrice} $</span>
             </p>
             <div id="info-wrapper">
                 <div id="details-description">
@@ -19,11 +22,11 @@ export const detailsTemplate = (offer, isUser, onDelete) => html`
                     <span>${offer.description}</span>
                 </div>
                 <div id="details-requirements">
-                    <h4>Additional info:</h4>
-                    <span>${offer.info}</span>
+                    <h4>Barcode:</h4>
+                    <span>${offer.code}</span>
                 </div>
             </div>
-            <p>Quantity: <strong id="quantity">${offer.size}</strong></p> <!-- TODO: does not show quantity of the offer -->
+            <p>Quantity: <strong id="quantity">${offer.quantity}</strong></p> <!-- TODO: fix real quantity -->
 
             ${isUser
                     ? html

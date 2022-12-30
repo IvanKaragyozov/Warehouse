@@ -8,10 +8,10 @@ const editTemplate = (offer, onSubmit) => html`
             <form @submit="${onSubmit}" class="edit-form">
                 <input
                         type="text"
-                        name="title"
+                        name="name"
                         id="job-title"
-                        placeholder="Title"
-                        .value="${offer.title}"
+                        placeholder="Product name"
+                        .value="${offer.name}"
                 />
                 <input
                         type="text"
@@ -35,21 +35,34 @@ const editTemplate = (offer, onSubmit) => html`
                         cols="50"
                         .value="${offer.description}"
                 ></textarea>
-                <textarea
-                        id="item-info"
-                        name="info"
-                        placeholder="Additional info"
-                        rows="4"
-                        cols="20"
-                        .value="${offer.info}"
-                ></textarea>
                 <input
                         type="text"
-                        name="price"
-                        id="item-price"
-                        placeholder="Price"
-                        .value="${offer.price}"
+                        name="buy-price"
+                        id="buy-price"
+                        placeholder="Purchase price"
+                        .value="${offer.buyPrice}"
+                >
+                <input
+                        type="text"
+                        name="sell-price"
+                        id="sell-price"
+                        placeholder="Sell price"
+                        .value="${offer.sellPrice}"
                 />
+                <input
+                        type="text"
+                        id="quantity"
+                        name="quantity"
+                        placeholder="Quantity"
+                        .value="${offer.quantity}"
+                >
+                <input
+                        type="text"
+                        id="code"
+                        name="code"
+                        placeholder="Barcode"
+                        .value="${offer.code}"
+                >
 
                 <button type="submit">post</button>
             </form>
@@ -67,15 +80,19 @@ export async function editView(ctx) {
         const formData = new FormData(event.target);
 
         const offer = {
-            title : formData.get('title'),
+            name : formData.get('name'),
             imageUrl: formData.get('imageUrl'),
             category: formData.get('category'),
             description: formData.get('description'),
-            info: formData.get('info'),
-            price: formData.get('price')
-        };
+            buyPrice: formData.get('buy-price'),
+            sellPrice: formData.get('sell-price'),
+            quantity: formData.get('quantity'),
+            code: formData.get('code')
+        }
 
-        if (offer.title === '' || offer.imageUrl === '' || offer.category === '' || offer.description === '' || offer.info === '' || offer.price === '') {
+        if (
+            offer.name === '' || offer.imageUrl === '' || offer.category === '' ||
+            offer.description === '' || offer.buyPrice === '' || offer.sellPrice === '' || offer.quantity === '' || offer.code === '') {
             return alert('All fields are required!');
         }
 

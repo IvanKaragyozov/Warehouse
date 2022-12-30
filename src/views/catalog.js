@@ -17,9 +17,9 @@ const offerCard = (offer) => html`
     <li class="offer">
         <img src="${offer.imageUrl}" alt="example1"/>
         <p>
-            <strong><span class="title">${offer.title}</span></strong>
+            <strong><span class="title">${offer.name}</span></strong>
         </p>
-        <p><strong>Price:</strong><span class="price">${offer.price} $</span></p>
+        <p><strong>Price:</strong><span class="price">${offer.sellPrice} $</span></p>
         <a class="details-btn" href="/offers/${offer._id}">Details</a>
     </li>
 `;

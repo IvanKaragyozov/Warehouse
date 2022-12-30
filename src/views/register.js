@@ -10,13 +10,13 @@ const registerTemplate = (onSubmit) => html`
                         type="text"
                         name="username"
                         id="register-username"
-                        placeholder="username"
+                        placeholder="username*"
                 />
                 <input
                         type="text"
                         name="email"
                         id="register-email"
-                        placeholder="email"
+                        placeholder="email*"
                 />
                 <input
                         type="text"
@@ -28,13 +28,13 @@ const registerTemplate = (onSubmit) => html`
                         type="password"
                         name="password"
                         id="register-password"
-                        placeholder="password"
+                        placeholder="password*"
                 />
                 <input
                         type="password"
                         name="re-password"
                         id="repeat-password"
-                        placeholder="repeat password"
+                        placeholder="repeat password*"
                 />
                 <button type="submit">register</button>
                 <p class="message">Already registered? <a href="/login">Login</a></p>

@@ -68,7 +68,7 @@
     }
   }
 
-  var errors = {
+  const errors = {
     ServiceError,
     NotFoundError,
     RequestError,
@@ -1441,42 +1441,42 @@
     offers: {
       "1840a313-225c-416a-817a-9954d4609f7c": {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-        title: "Castrol Edge oil",
+        name: "Castrol Edge oil",
         imageUrl: "../images/edge_5W-40.jpg",
         category: "Oils",
-        description:
-          "5W-40 1L oil.",
-        info:
-          "Manufacturer: Castrol",
-        price: "20",
+        description: "5W-40 1L oil.",
+        buyPrice: "14",
+        sellPrice: "19",
+        quantity: "10",
+        code: "444259822",
         _createdOn: 1617194210928,
       },
       "126777f5-3277-42ad-b874-76d043b069cb": {
         _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-        title: "Toolbox",
+        name: "Toolbox",
         imageUrl: "../images/toolbox.jpg",
         category: "Accessories",
-        description:
-          "It included multiple departments for tools.",
-        info:
-          "Manufactured by Parkside.",
-        price: "30",
+        description: "It included multiple departments for tools.",
+        buyPrice: "14",
+        sellPrice: "15",
+        quantity: "8",
+        code: "869333970",
         _createdOn: 1617194295474,
       },
       "136777f5-3277-42ad-b874-76d043b069cb": {
         _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-        title: "Pliers",
+        name: "Pliers",
         imageUrl: "../images/pliers.jpg",
         category: "Tools",
         description:
           "Simple but very reliable pliers",
-        info:
-          "Manufactured by Vigor.",
-        price: "5",
+        buyPrice: "2",
+        sellPrice: "4",
+        quantity: "19",
+        code: "869255300",
         _createdOn: 1617194295480,
       },
     },
-    quantity: {},
   };
   var rules$1 = {
     users: {

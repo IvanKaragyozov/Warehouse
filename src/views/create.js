@@ -8,9 +8,9 @@ const createTemplate = (onSubmit) => html`
             <form @submit="${onSubmit}" class="create-form">
                 <input
                         type="text"
-                        name="title"
+                        name="name"
                         id="job-title"
-                        placeholder="Title"
+                        placeholder="Product name"
                 />
                 <input
                         type="text"
@@ -31,19 +31,30 @@ const createTemplate = (onSubmit) => html`
                         rows="4"
                         cols="50"
                 ></textarea>
-                <textarea
-                        id="item-info"
-                        name="info"
-                        placeholder="Additional info"
-                        rows="4"
-                        cols="20"
-                ></textarea>
                 <input
                         type="text"
-                        name="price"
-                        id="item-price"
-                        placeholder="Price"
+                        name="buy-price"
+                        id="buy-price"
+                        placeholder="Purchase price"
                 />
+                <input
+                        type="text"
+                        name="sell-price"
+                        id="sell-price"
+                        placeholder="Sell price"
+                />
+                <input
+                        type="text"
+                        id="quantity"
+                        name="quantity"
+                        placeholder="Quantity"
+                >
+                <input
+                        type="text"
+                        id="code"
+                        name="code"
+                        placeholder="Barcode"
+                >
 
                 <button type="submit">create</button>
             </form>
@@ -60,15 +71,19 @@ export function createView(ctx) {
         const formData = new FormData(event.target);
 
         const offer = {
-            title : formData.get('title'),
+            name : formData.get('name'),
             imageUrl: formData.get('imageUrl'),
             category: formData.get('category'),
             description: formData.get('description'),
-            info: formData.get('info'),
-            price: formData.get('price')
+            buyPrice: formData.get('buy-price'),
+            sellPrice: formData.get('sell-price'),
+            quantity: formData.get('quantity'),
+            code: formData.get('code')
         }
 
-        if (offer.title === '' || offer.imageUrl === '' || offer.category === '' || offer.description === '' || offer.info === '' || offer.price === '') {
+        if (
+            offer.name === '' || offer.imageUrl === '' || offer.category === '' ||
+            offer.description === '' || offer.buyPrice === '' || offer.sellPrice === '' || offer.quantity === '' || offer.code === '') {
             return alert('All fields are required!');
         }
 
