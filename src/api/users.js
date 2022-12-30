@@ -15,15 +15,35 @@ export async function login(username, password) {
     return result;
 }
 
-export async function register(username, email, password) {
-    const result = await post('/users/register', {username, email, password});
+export async function register(username, email, phone, password) {
 
-    const userData = {
-        id: result._id,
-        username: result.username,
-        email: result.email,
-        accessToken: result.accessToken
-    };
+    let result;
+    let userData;
+
+    if (phone) {
+
+        result = await post('/users/register', {username, email, phone, password});
+
+        userData = {
+            id: result._id,
+            username: result.username,
+            email: result.email,
+            phone: result.phone,
+            accessToken: result.accessToken
+        };
+
+    } else {
+
+        result = await post('/users/register', {username, email, password});
+
+        userData = {
+            id: result._id,
+            username: result.username,
+            email: result.email,
+            accessToken: result.accessToken
+        };
+
+    }
 
     setUserData(userData);
 

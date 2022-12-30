@@ -1169,8 +1169,8 @@
         if (
           body.hasOwnProperty(identity) === false ||
           body.hasOwnProperty("password") === false ||
-          body[identity].length == 0 ||
-          body.password.length == 0
+          body[identity].length === 0 ||
+          body.password.length === 0
         ) {
           throw new RequestError$2("Missing fields");
         } else if (

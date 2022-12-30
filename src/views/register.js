@@ -19,6 +19,12 @@ const registerTemplate = (onSubmit) => html`
                         placeholder="email"
                 />
                 <input
+                        type="text"
+                        name="phone"
+                        id="register-phone"
+                        placeholder="phone"
+                />
+                <input
                         type="password"
                         name="password"
                         id="register-password"
@@ -40,57 +46,47 @@ const registerTemplate = (onSubmit) => html`
 export function registerView(ctx){
     ctx.render(registerTemplate(onSubmit));
 
-    function validateEmail(emailInput) {
-        const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-        if (mailFormat.test(emailInput) === true) {
-            return emailInput;
-        } else {
-            return alert("Invalid email address!");
-        }
-    }
-
-
     async function onSubmit(event) {
         event.preventDefault();
         const formData = new FormData(event.target);
 
         const username = formData.get('username').trim();
         const email = formData.get('email').trim();
+        const phone = formData.get('phone').trim();
         const password = formData.get('password').trim();
         const repeatPass = formData.get('re-password').trim();
 
         const usernameRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[_]).{5,15}/;
         const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        const phoneRegex = /^[\d\s-]+$/;
         const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[@-_~|]).{6,20}/; // /^(?=.*[A-Z])(?=.*[a-z])(?=.*[@|-|_])[\S]{6,20}$/
 
         if (username === '' || email === '' || password === '' || repeatPass === '') {
-            return alert('All fields are required!');
+            return alert('Must enter all the required fields!');
         }
 
         if (usernameRegex.test(username) === false){
             return alert('Invalid username!');
         }
 
-        if (!username.includes("_")){
-            return alert('Username must contain _ !');
-        }
-
         if (emailRegex.test(email) === false) {
             return alert("Invalid email address!");
         }
 
+        if (phone && phoneRegex.test(phone) === false) {
+            return alert("Invalid phone number!");
+        }
 
         if (password !== repeatPass) {
             return alert("Passwords don't match!");
         }
 
-
         if (passwordRegex.test(password) === false){
             return alert("Invalid password!");
         }
 
-        await register(username, email, password);
+        await register(username, email, phone, password);
+
         ctx.updateNav();
         ctx.page.redirect('/offers');
     }
