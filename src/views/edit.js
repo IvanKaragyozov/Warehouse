@@ -20,13 +20,12 @@ const editTemplate = (offer, onSubmit) => html`
                         placeholder="Item picture"
                         .value="${offer.imageUrl}"
                 />
-                <input
-                        type="text"
-                        name="category"
-                        id="job-category"
-                        placeholder="Category"
-                        .value="${offer.category}"
-                />
+                <select name="category" id="job-category">
+                    <option value="groceries">Groceries</option>
+                    <option value="stationery">Stationery</option>
+                    <option value="building materials">Building materials</option>
+                    .value="${offer.category}"
+                </select>
                 <textarea
                         id="job-description"
                         name="description"
