@@ -9,24 +9,24 @@ const createTemplate = (onSubmit) => html`
                 <input
                         type="text"
                         name="name"
-                        id="job-title"
+                        id="product-name"
                         placeholder="Product name"
                 />
                 <input
                         type="text"
                         name="imageUrl"
-                        id="job-logo"
+                        id="product-image"
                         placeholder="Item picture"
+                        accept=".jpeg, .jpg, .png"
                 />
-                <input
-                        type="text"
-                        name="category"
-                        id="job-category"
-                        placeholder="Category"
-                />
+                <select name="category" id="offer-category">
+                    <option value="Groceries">Groceries</option>
+                    <option value="Stationery">Stationery</option>
+                    <option value="Building materials">Building materials</option>
+                </select>
                 <textarea
-                        id="job-description"
                         name="description"
+                        id="product-description"
                         placeholder="Description"
                         rows="4"
                         cols="50"

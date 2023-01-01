@@ -9,26 +9,26 @@ const editTemplate = (offer, onSubmit) => html`
                 <input
                         type="text"
                         name="name"
-                        id="job-title"
+                        id="product-name"
                         placeholder="Product name"
                         .value="${offer.name}"
                 />
                 <input
                         type="text"
                         name="imageUrl"
-                        id="job-logo"
+                        id="product-image"
                         placeholder="Item picture"
                         .value="${offer.imageUrl}"
                 />
-                <select name="category" id="job-category">
+                <select name="category" id="offer-category">
                     <option value="groceries">Groceries</option>
                     <option value="stationery">Stationery</option>
                     <option value="building materials">Building materials</option>
-                    .value="${offer.category}"
+                        .value="${offer.category}"
                 </select>
                 <textarea
-                        id="job-description"
                         name="description"
+                        id="product-description"
                         placeholder="Description"
                         rows="4"
                         cols="50"
