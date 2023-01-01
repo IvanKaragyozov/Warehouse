@@ -1,3 +1,7 @@
+*{
+  font-family: Poppins, sans-serif;
+}
+
 #dashboard {
   margin-top: 50px;
   display: block;
@@ -19,17 +23,6 @@ h2 {
 .price {
   font-size: 21px;
 }
-
-/*.offer {
-  display: flex;
-  justify-content: space-between;
-  max-width: 70%;
-  margin: 25px auto;
-  background-color: white;
-  border-radius: 5px;
-  border: 2px ridge rgb(210, 208, 208);
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.24);
-}*/
 
 .offer-wrapper {
   list-style-type: none;
@@ -85,4 +78,29 @@ h2 {
 .offer span {
   padding: 10px;
   margin: auto;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  transition: 0.3s ease-in-out;
+}
+
+.pagination a:hover {
+  background-color: #ddd;
+}
+
+.pagination .page-info {
+  margin: 0 1rem;
+  font-size: 1.2rem;
 }
