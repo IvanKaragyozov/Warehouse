@@ -13,11 +13,10 @@ const createTemplate = (onSubmit) => html`
                         placeholder="Product name"
                 />
                 <input
-                        type="text"
+                        type="file"
                         name="imageUrl"
                         id="product-image"
-                        placeholder="Item picture"
-                        accept=".jpeg, .jpg, .png"
+                        accept="image/jpeg, image/jpg, image/png"
                 />
                 <select name="category" id="offer-category">
                     <option value="Groceries">Groceries</option>
@@ -69,27 +68,45 @@ export function createView(ctx) {
     async function onSubmit(event) {
         event.preventDefault();
         const formData = new FormData(event.target);
+        const imageFile = formData.get('imageUrl');
 
-        const offer = {
-            name : formData.get('name'),
-            imageUrl: formData.get('imageUrl'),
-            category: formData.get('category'),
-            description: formData.get('description'),
-            buyPrice: formData.get('buy-price'),
-            sellPrice: formData.get('sell-price'),
-            quantity: formData.get('quantity'),
-            code: formData.get('code')
+        // Create a new FileReader object
+        const reader = new FileReader();
+
+        // Set the onload event handler
+        reader.onload = async function (e) {
+            // Convert the file to a base64 encoded string
+            const imageUrl = e.target.result;
+
+            // Create the offer object using the base64 encoded string
+            const offer = {
+                name: formData.get('name'),
+                imageUrl: imageUrl,
+                category: formData.get('category'),
+                description: formData.get('description'),
+                buyPrice: formData.get('buy-price'),
+                sellPrice: formData.get('sell-price'),
+                quantity: formData.get('quantity'),
+                code: formData.get('code')
+            }
+
+            if (
+                offer.name === '' || offer.imageUrl === '' || offer.category === '' ||
+                offer.description === '' || offer.buyPrice === '' || offer.sellPrice === '' || offer.quantity === '' || offer.code === '') {
+                return alert('All fields are required!');
+            }
+
+            await createOffer(offer);
+
+            event.target.reset();
+            ctx.page.redirect('/offers');
         }
-
-        if (
-            offer.name === '' || offer.imageUrl === '' || offer.category === '' ||
-            offer.description === '' || offer.buyPrice === '' || offer.sellPrice === '' || offer.quantity === '' || offer.code === '') {
-            return alert('All fields are required!');
-        }
-
-        await createOffer(offer);
 
         event.target.reset();
         ctx.page.redirect('/offers');
+
+        // Read the image file and trigger the onload event handler
+        reader.readAsDataURL(imageFile);
     }
+
 }
