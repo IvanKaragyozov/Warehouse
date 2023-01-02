@@ -22,8 +22,8 @@ const catalogTemplate = (offers, page, pages) => html`
     </section>
 `;
 
-const offerCard = (offer) => html`
-    <li class="offer" aria-live="polite">
+export const offerCard = (offer) => html`
+    <li class="offer">
         <img src="${offer.imageUrl}" alt="example1"/>
         <p>
             <strong><span class="title">${offer.name}</span></strong>

@@ -8,6 +8,7 @@ import {catalogView} from "./views/catalog.js";
 import {createView} from "./views/create.js";
 import {detailsView} from "./views/details.js";
 import {editView} from "./views/edit.js";
+import {searchView} from "./views/search.js";
 
 const main = document.querySelector('main');
 
@@ -20,6 +21,7 @@ page('/offers/:id', detailsView);
 page('/edit/:id', editView);
 page('/create', createView);
 page('/logout', onLogout);
+page('/search-results', searchView);
 
 updateNav();
 page.start();

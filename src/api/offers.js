@@ -19,3 +19,7 @@ export async function updateOffer(id, offer){
 export async function deleteOffer(id){
     return del('/data/offers/' + id);
 }
+
+export async function search(query){
+    return get(`/data/offers?where=name%20LIKE%20%22${query}%22`);
+}
