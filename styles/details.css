@@ -12,7 +12,7 @@
   margin: 30px auto;
 }
 
-#details-title {
+#details-name {
   text-align: center;
   font-weight: bold;
   font-size: 29px;
@@ -36,7 +36,7 @@
 }
 
 #details-description,
-#details-requirements {
+#details-barcode {
   width: 45%;
   margin: 30px auto;
   height: auto;

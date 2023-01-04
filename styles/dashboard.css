@@ -28,6 +28,7 @@ h2 {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
+  margin-right: 35px;
 }
 
 .offer-wrapper h2 {
@@ -38,7 +39,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 23%;
+  max-width: 350px;
   height: 500px;
   margin: 25px auto;
   background-color: white;
@@ -56,6 +57,11 @@ h2 {
   text-align: center;
   color: white;
   background: #5c9596; /*#5c9596*/ /*#7c7e7e*/
+  transition: background 0.1s ease-in-out;
+}
+
+.details-btn:hover {
+  background: #2c7777;
 }
 
 .offer p {

@@ -43,7 +43,7 @@ const createTemplate = (onSubmit) => html`
                         placeholder="Sell price"
                 />
                 <input
-                        type="text"
+                        type="number"
                         id="quantity"
                         name="quantity"
                         placeholder="Quantity"
@@ -91,7 +91,7 @@ export function createView(ctx) {
             }
 
             if (
-                offer.name === '' || offer.imageUrl === '' || offer.category === '' ||
+                offer.name === '' || offer.imageUrl === null || offer.category === '' ||
                 offer.description === '' || offer.buyPrice === '' || offer.sellPrice === '' || offer.quantity === '' || offer.code === '') {
                 return alert('All fields are required!');
             }

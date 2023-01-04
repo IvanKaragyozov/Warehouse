@@ -1,6 +1,6 @@
 import { html } from '../library.js';
-import {getOfferById, search} from "../api/offers.js";
-import {offerCard} from "./catalog.js";
+import { search } from "../api/offers.js";
+import { offerCard } from "./catalog.js";
 
 const searchTemplate = (offers, onSubmit) => html`
     <section id="search">
@@ -18,15 +18,13 @@ const searchTemplate = (offers, onSubmit) => html`
                 <button type="submit">Search</button>
             </form>
 
-            <h3>Results:</h3>
-
             <div>
-                ${offers
-                        ? html`
+                ${offers && offers.length > 0
+                        ? html` <h3>Results:</h3>
                             <div class="offer-wrapper">
                                 ${offers.map(offerCard)}
                             </div>`
-                        : html`<p>No results found</p>` //TODO: fix correct message when there are no results
+                        : html`<p>No results found</p>`
             } 
             </div>
         </div>
@@ -42,9 +40,14 @@ export async function searchView(ctx) {
         const formData = new FormData(event.target);
         const query = formData.get('search').trim();
 
+        // TODO: "No results found" message should only be shows when results are searched
+        if (query.length === 0) {
+            ctx.render(document.getElementById('search-result').textContent = "");
+            return;
+        }
+
         const offers = await search(query);
         //ctx.page.redirect(`/search-results?search?query=${query}`);
         ctx.render(searchTemplate(offers, onSubmit));
     }
-
 }

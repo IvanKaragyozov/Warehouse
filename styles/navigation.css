@@ -11,7 +11,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0.3em 3em;
-  background: #e0ecf1;
+  background: #bfdce3; /*#e0ecf1*/
 }
 
 nav {
@@ -28,9 +28,40 @@ nav {
 }
 
 #logo-img {
-  height: 70px;
+  background-color: transparent;
+  width: 80px;
+  height: 80px;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid transparent;
+  transition: border 0.3s ease-in-out;
+  z-index: 1;
 }
 
+#logo-img:hover {
+  border: 2px solid rgba(0, 0, 0, 0.60);
+}
+
+#logo-img:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 0%;
+  width: 0%;
+  border: 2px solid #000;
+  transition: height 3s ease-in-out, width 3s ease-in-out;
+  z-index: 0;
+}
+
+#logo-img:hover:before {
+  height: 100%;
+  width: 100%;
+  top: -100%;
+  transition: height 3s ease-in-out, width 3s ease-in-out;
+}
 nav a {
   font-size: 1.5rem;
   color: #0a0a0a;
@@ -43,7 +74,7 @@ header a {
 }
 
 footer {
-  background-color: #e0ecf1; /*#7d7e7e*/ /*#e0ecf1*/
+  background-color: #bfdce3; /*#7d7e7e*/ /*#e0ecf1*/
   color: black;
   font-weight: bolder;
   text-align: center;
@@ -78,4 +109,28 @@ section {
   font-size: 27px;
   color: rgb(12 100 120);
   text-align: center;
+}
+
+.underline-animation {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.underline-animation:before {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  margin: auto; /* Change to 0 for underline to start from left to right */
+  width: 0%;
+  height: 2px;
+  background-color: #000;
+  transition: width 0.1s ease-in-out;
+}
+
+.underline-animation:hover:before {
+  width: 100%;
+  transition: width 0.2s ease-in-out;
 }

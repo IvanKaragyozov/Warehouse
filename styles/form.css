@@ -52,11 +52,14 @@
   padding: 15px;
   color: #ffffff;
   font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
+  -webkit-transition: all 0.3s ease;
   cursor: pointer;
+  transition: background 0.15s ease-in-out;
 }
-.form button:hover,
+.form button:hover {
+  background: #2c7777;
+}
+
 .form button:active,
 .form button:focus {
   background: #5c9596;

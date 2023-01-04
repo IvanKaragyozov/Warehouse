@@ -1,4 +1,4 @@
-import {logout, register} from '../api/users.js';
+import { register } from '../api/users.js';
 import { html } from '../library.js';
 
 const registerTemplate = (onSubmit) => html`
@@ -78,7 +78,7 @@ export function registerView(ctx){
         }
 
         if (password !== repeatPass) {
-            return alert("Passwords don't match!");
+            return alert("Passwords do not match!");
         }
 
         if (passwordRegex.test(password) === false){

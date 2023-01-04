@@ -6,7 +6,7 @@ export const detailsTemplate = (offer, isUser, onDelete) => html`
     <section id="details">
         <div id="details-wrapper">
             <img id="details-img" src="${offer.imageUrl}" alt="example1"/>
-            <p id="details-title">${offer.name}</p>
+            <p id="details-name">${offer.name}</p>
             <p id="details-category">
                 Category: <span id="categories">${offer.category}</span>
             </p>
@@ -21,7 +21,7 @@ export const detailsTemplate = (offer, isUser, onDelete) => html`
                     <h4>Description:</h4>
                     <span>${offer.description}</span>
                 </div>
-                <div id="details-requirements">
+                <div id="details-barcode">
                     <h4>Barcode:</h4>
                     <span>${offer.code}</span>
                 </div>
