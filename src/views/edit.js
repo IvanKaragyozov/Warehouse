@@ -1,4 +1,4 @@
-import { getOfferById, updateOffer } from '../api/offers.js';
+import st{ getOfferById, updateOffer } from '../api/offers.js';
 import { html } from '../library.js';
 
 const editTemplate = (offer, onSubmit) => html`
@@ -20,9 +20,9 @@ const editTemplate = (offer, onSubmit) => html`
                         accept="image/jpeg, image/jpg, image/png"
                 />
                 <select name="category" id="offer-category">
-                    <option value="groceries">Groceries</option>
-                    <option value="stationery">Stationery</option>
-                    <option value="building materials">Building materials</option>
+                    <option value="Groceries">Groceries</option>
+                    <option value="Office materials">Office materials</option>
+                    <option value="Building materials">Building materials</option>
                         .value="${offer.category}"
                 </select>
                 <textarea
@@ -90,13 +90,13 @@ export async function editView(ctx) {
             // Create the offer object using the base64 encoded string
             const offer = {
                 name: formData.get('name'),
-                imageUrl: imageUrl,
+                imageUrl: imageUrl, // TODO: Fix if no image is added - it gets removed
                 category: formData.get('category'),
                 description: formData.get('description'),
                 buyPrice: formData.get('buy-price'),
                 sellPrice: formData.get('sell-price'),
                 quantity: formData.get('quantity'),
-                code: formData.get('code')
+                code: formData.get('code') // TODO: Make unique
             }
 
             if (

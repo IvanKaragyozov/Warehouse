@@ -9,7 +9,7 @@ const homeTemplate = () => html`
 
 export function homeView(ctx) {
     if (getUserData()) {
-        ctx.page.redirect('/');
+        ctx.page.redirect('/offers'); // TODO: Check if it works
     } else {
         ctx.render(homeTemplate());
     }

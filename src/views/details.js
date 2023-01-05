@@ -1,5 +1,5 @@
 import { deleteOffer, getOfferById } from '../api/offers.js';
-import {html, nothing} from '../library.js';
+import { html, nothing } from '../library.js';
 import { getUserData } from '../util.js';
 
 export const detailsTemplate = (offer, isUser, onDelete) => html`
@@ -33,7 +33,7 @@ export const detailsTemplate = (offer, isUser, onDelete) => html`
                             `
                                 <div id="action-buttons">
                                     <a href="/edit/${offer._id}" id="edit-btn">Edit</a>
-                                    <a @click="${onDelete}" href="" id="delete-btn">Delete</a>
+                                    <a @click="${onDelete}" href="" id="delete-btn">Delete</a> <!-- TODO: Add a message for deletion -->
                                 </div>`
                     : nothing}
         </div>

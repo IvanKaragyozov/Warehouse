@@ -24,7 +24,7 @@ const searchTemplate = (offers, onSubmit) => html`
                             <div class="offer-wrapper">
                                 ${offers.map(offerCard)}
                             </div>`
-                        : html`<p>No results found</p>`
+                        : html`<p id="search-result">No results found</p>`
             } 
             </div>
         </div>
@@ -40,14 +40,14 @@ export async function searchView(ctx) {
         const formData = new FormData(event.target);
         const query = formData.get('search').trim();
 
-        // TODO: "No results found" message should only be shows when results are searched
+        // TODO: "No results found" message should only be showing when results are searched
         if (query.length === 0) {
             ctx.render(document.getElementById('search-result').textContent = "");
             return;
         }
 
         const offers = await search(query);
-        //ctx.page.redirect(`/search-results?search?query=${query}`);
+        //ctx.page.redirect(`/search-results?query=${query}`);
         ctx.render(searchTemplate(offers, onSubmit));
     }
 }
