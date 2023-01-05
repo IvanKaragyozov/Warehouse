@@ -1,4 +1,4 @@
-import {createOffer, getOfferById, updateOffer} from '../api/offers.js';
+import { getOfferById, updateOffer } from '../api/offers.js';
 import { html } from '../library.js';
 
 const editTemplate = (offer, onSubmit) => html`
@@ -34,23 +34,26 @@ const editTemplate = (offer, onSubmit) => html`
                         .value="${offer.description}"
                 ></textarea>
                 <input
-                        type="text"
+                        type="number"
+                        min="0"
                         name="buy-price"
                         id="buy-price"
                         placeholder="Purchase price"
                         .value="${offer.buyPrice}"
                 >
                 <input
-                        type="text"
+                        type="number"
+                        min="0"
                         name="sell-price"
                         id="sell-price"
                         placeholder="Sell price"
                         .value="${offer.sellPrice}"
                 />
                 <input
-                        type="text"
-                        id="quantity"
+                        type="number"
+                        min="0"
                         name="quantity"
+                        id="quantity"
                         placeholder="Quantity"
                         .value="${offer.quantity}"
                 >
@@ -97,9 +100,9 @@ export async function editView(ctx) {
             }
 
             if (
-                offer.name === '' || offer.imageUrl === '' || offer.category === '' ||
-                offer.description === '' || offer.buyPrice === '' || offer.sellPrice === '' || offer.quantity === '' || offer.code === '') {
-                return alert('All fields are required!');
+                offer.name === '' || offer.category === '' ||
+                offer.buyPrice === '' || offer.sellPrice === '' || offer.quantity === '' || offer.code === '') {
+                return alert('Must enter all the required fields!');
             }
 
             await updateOffer(ctx.params.id, offer);

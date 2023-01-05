@@ -31,19 +31,22 @@ const createTemplate = (onSubmit) => html`
                         cols="50"
                 ></textarea>
                 <input
-                        type="text"
+                        type="number"
+                        min="0"
                         name="buy-price"
                         id="buy-price"
                         placeholder="Purchase price"
                 />
                 <input
-                        type="text"
+                        type="number"
+                        min="0"
                         name="sell-price"
                         id="sell-price"
                         placeholder="Sell price"
                 />
                 <input
                         type="number"
+                        min="0"
                         id="quantity"
                         name="quantity"
                         placeholder="Quantity"
@@ -70,7 +73,6 @@ export function createView(ctx) {
         const formData = new FormData(event.target);
         const imageFile = formData.get('imageUrl');
 
-        // Create a new FileReader object
         const reader = new FileReader();
 
         // Set the onload event handler
@@ -78,7 +80,6 @@ export function createView(ctx) {
             // Convert the file to a base64 encoded string
             const imageUrl = e.target.result;
 
-            // Create the offer object using the base64 encoded string
             const offer = {
                 name: formData.get('name'),
                 imageUrl: imageUrl,
@@ -91,9 +92,9 @@ export function createView(ctx) {
             }
 
             if (
-                offer.name === '' || offer.imageUrl === null || offer.category === '' ||
-                offer.description === '' || offer.buyPrice === '' || offer.sellPrice === '' || offer.quantity === '' || offer.code === '') {
-                return alert('All fields are required!');
+                offer.name === '' || offer.category === '' ||
+                offer.buyPrice === '' || offer.sellPrice === '' || offer.quantity === '' || offer.code === '') {
+                return alert('Must enter all the required fields!');
             }
 
             await createOffer(offer);

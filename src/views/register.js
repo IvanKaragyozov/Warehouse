@@ -13,7 +13,7 @@ const registerTemplate = (onSubmit) => html`
                         placeholder="username*"
                 />
                 <input
-                        type="text"
+                        type="email"
                         name="email"
                         id="register-email"
                         placeholder="email*"
@@ -57,7 +57,7 @@ export function registerView(ctx){
         const repeatPass = formData.get('re-password').trim();
 
         const usernameRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[_]).{5,15}/;
-        const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        const emailRegex = /^\w+(-?\w+)*@\w+(-?\w+)*(\.\w{2,3})+$/;
         const phoneRegex = /^[\d\s-]+$/;
         const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[@-_~|]).{6,20}/; // /^(?=.*[A-Z])(?=.*[a-z])(?=.*[@|-|_])[\S]{6,20}$/
 
