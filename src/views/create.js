@@ -20,7 +20,7 @@ const createTemplate = (onSubmit) => html`
                 />
                 <select name="category" id="offer-category">
                     <option value="Groceries">Groceries</option>
-                    <option value="Stationery">Stationery</option>
+                    <option value="Office materials">Office materials</option>
                     <option value="Building materials">Building materials</option>
                 </select>
                 <textarea
@@ -88,7 +88,7 @@ export function createView(ctx) {
                 buyPrice: formData.get('buy-price'),
                 sellPrice: formData.get('sell-price'),
                 quantity: formData.get('quantity'),
-                code: formData.get('code')
+                code: formData.get('code') // TODO: Make unique
             }
 
             if (

@@ -1,4 +1,4 @@
-import st{ getOfferById, updateOffer } from '../api/offers.js';
+import { getOfferById, updateOffer } from '../api/offers.js';
 import { html } from '../library.js';
 
 const editTemplate = (offer, onSubmit) => html`
