@@ -33,6 +33,7 @@ const createTemplate = (onSubmit) => html`
                 <input
                         type="number"
                         min="0"
+                        step="0.01"
                         name="buy-price"
                         id="buy-price"
                         placeholder="Purchase price"
@@ -40,6 +41,7 @@ const createTemplate = (onSubmit) => html`
                 <input
                         type="number"
                         min="0"
+                        step="0.01"
                         name="sell-price"
                         id="sell-price"
                         placeholder="Sell price"
@@ -103,8 +105,7 @@ export function createView(ctx) {
             ctx.page.redirect('/offers');
         }
 
-        event.target.reset();
-        ctx.page.redirect('/offers');
+        ctx.page.redirect('/create');
 
         // Read the image file and trigger the onload event handler
         reader.readAsDataURL(imageFile);

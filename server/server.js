@@ -891,7 +891,7 @@
     const storage = createInstance(settings.seedData);
     const protectedStorage = createInstance(settings.protectedData);
 
-    return function decoreateContext(context, request) {
+    return function decorateContext(context, request) {
       context.storage = storage;
       context.protectedStorage = protectedStorage;
     };
@@ -1196,6 +1196,37 @@
         }
       }
 
+      /*function create(body) {
+        if (
+            body.hasOwnProperty(identity) === false ||
+            body.hasOwnProperty("password") === false ||
+            body[identity].length === 0 ||
+            body.password.length === 0
+        ) {
+          throw new RequestError$2("Missing fields");
+        } else if (
+            context.protectedStorage.query("users", {
+              [identity]: body[identity],
+            }).length !== 0
+        ) {
+          throw new ConflictError$1(
+              `A user with the same ${identity} already exists`
+          );
+        } else {
+          const newUser = Object.assign({}, body, {
+            [identity]: body[identity],
+            hashedPassword: hash(body.password),
+          });
+          const result = context.protectedStorage.add("users", newUser);
+          delete result.hashedPassword;
+
+          const session = saveSession(result._id);
+          result.accessToken = session.accessToken;
+
+          return result;
+        }
+      }*/
+
       function login(body) {
         const targetUser = context.protectedStorage.query("users", {
           [identity]: body[identity],
@@ -1425,14 +1456,14 @@
   var protectedData = {
     users: {
       "35c62d76-8152-4626-8712-eeb96381bea8": {
-        username: "peter@abv.bg",
+        username: "ivan_",
         hashedPassword:
-          "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1",
+          "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1", // 123456
       },
       "847ec027-f659-4086-8032-5173e2f9c93a": {
-        username: "john@abv.bg",
+        username: "georgi@abv.bg",
         hashedPassword:
-          "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1",
+          "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1", // 123456
       },
     },
     sessions: {},

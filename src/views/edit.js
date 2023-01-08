@@ -36,6 +36,7 @@ const editTemplate = (offer, onSubmit) => html`
                 <input
                         type="number"
                         min="0"
+                        step="0.01"
                         name="buy-price"
                         id="buy-price"
                         placeholder="Purchase price"
@@ -44,6 +45,7 @@ const editTemplate = (offer, onSubmit) => html`
                 <input
                         type="number"
                         min="0"
+                        step="0.01"
                         name="sell-price"
                         id="sell-price"
                         placeholder="Sell price"

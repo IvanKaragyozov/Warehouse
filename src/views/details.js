@@ -35,7 +35,7 @@ export const detailsTemplate = (offer, isUser, onDelete) => html`
                                     <a href="/edit/${offer._id}" id="edit-btn">Edit</a>
                                     <a @click="${onDelete}" href="" id="delete-btn">Delete</a> <!-- TODO: Add a message for deletion -->
                                 </div>`
-                    : nothing}
+                    : nothing }
         </div>
     </section>
 `;

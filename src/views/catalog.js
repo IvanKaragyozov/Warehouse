@@ -1,5 +1,5 @@
 import { getAllOffers } from '../api/offers.js';
-import { html } from '../library.js';
+import { html, nothing } from '../library.js';
 
 const catalogTemplate = (offers, page, pages) => html`
     <section id="dashboard">
@@ -13,11 +13,11 @@ const catalogTemplate = (offers, page, pages) => html`
         <div class="pagination">
             ${page > 1
                     ? html`<a class="prev-page" href="javascript:void(0)" onclick="prevPage()">Prev</a>`
-                    : ''}
+                    : nothing }
             <span class="page-info">Page ${page} of ${pages}</span>
             ${page < pages
                     ? html`<a class="next-page" href="javascript:void(0)" onclick="nextPage()">Next</a>`
-                    : ''}
+                    : nothing }
         </div>
     </section>
 `;
