@@ -1297,7 +1297,7 @@
         return context.storage.get(collectionName, id);
       };
       const isOwner = (user, object) => {
-        return user._id == object._ownerId;
+        return user._id === object._ownerId;
       };
       context.rules = {
         get,
@@ -1333,10 +1333,10 @@
           rule = !!eval(rule);
         }
 
-        if (rule == false) {
-          if (action == ".create" || action == ".update") {
+        if (rule === false) {
+          if (action === ".create" || action === ".update") {
             delete newData[prop];
-          } else if (action == ".read") {
+          } else if (action === ".read") {
             delete data[prop];
           }
         }
@@ -1350,7 +1350,7 @@
         } else if (roles.includes("User")) {
           return true;
         } else if (context.user && roles.includes("Owner")) {
-          return context.user._id == data._ownerId;
+          return context.user._id === data._ownerId;
         } else {
           return false;
         }
@@ -1430,13 +1430,13 @@
     offers: {
       "1840a313-225c-416a-817a-9954d4609f7c": {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-        name: "Castrol Edge oil",
-        imageUrl: "../images/edge_5W-40.jpg",
-        category: "Building materials",
-        description: "5W-40 1L oil.",
-        buyPrice: "14",
-        sellPrice: "19",
-        quantity: "10",
+        name: "Butter",
+        imageUrl: "../images/butter.jpg",
+        category: "Groceries",
+        description: "Butter Deutsche Markenbutter 125 g.",
+        buyPrice: "3.15",
+        sellPrice: "4.25",
+        quantity: "11",
         code: "444259822",
         _createdOn: 1617194210928,
       },
@@ -1448,7 +1448,7 @@
         description: "It included multiple departments for tools.",
         buyPrice: "14",
         sellPrice: "15",
-        quantity: "8",
+        quantity: "4",
         code: "869333970",
         _createdOn: 1617194295474,
       },
