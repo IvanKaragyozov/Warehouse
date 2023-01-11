@@ -26,7 +26,7 @@ export const detailsTemplate = (offer, isUser, onDelete) => html`
                     <span>${offer.code}</span>
                 </div>
             </div>
-            <p>Quantity: <strong id="quantity">${offer.quantity}</strong></p> <!-- TODO: fix real quantity -->
+            <p>Quantity: <strong id="quantity">${offer.quantity}</strong></p>
 
             ${isUser
                     ? html
