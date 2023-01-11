@@ -33,7 +33,7 @@ export const detailsTemplate = (offer, isUser, onDelete) => html`
                             `
                                 <div id="action-buttons">
                                     <a href="/edit/${offer._id}" id="edit-btn">Edit</a>
-                                    <a @click="${onDelete}" href="javascript:void(0)" id="delete-btn">Delete</a> <!-- TODO: Add a message for deletion -->
+                                    <a @click="${onDelete}" href="javascript:void(0)" id="delete-btn">Delete</a>
                                 </div>`
                     : nothing }
         </div>
@@ -49,7 +49,12 @@ export async function detailsView(ctx) {
     ctx.render(detailsTemplate(offer, isUser, onDelete));
 
     async function onDelete() {
-        await deleteOffer(ctx.params.id);
+        const confirmMessage = confirm("Are you sure you want to delete this item?");
+
+        if (confirmMessage) {
+            await deleteOffer(ctx.params.id);
+        } else return;
+
         ctx.page.redirect('/offers');
     }
 
