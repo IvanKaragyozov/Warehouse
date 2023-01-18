@@ -45,7 +45,11 @@ export async function get(url) {
 
 export async function post(url, data) {
     // return request (url, 'post', data);
-    return request (url, 'post', data);
+    const res = await request(url, 'post', data);
+    if(res.status === 400){
+        alert(res.message);
+    }
+    return res;
 }
 
 export async function put(url, data) {
