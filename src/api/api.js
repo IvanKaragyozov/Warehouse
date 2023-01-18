@@ -44,6 +44,7 @@ export async function get(url) {
 }
 
 export async function post(url, data) {
+    // return request (url, 'post', data);
     return request (url, 'post', data);
 }
 

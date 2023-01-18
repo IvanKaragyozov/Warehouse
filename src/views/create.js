@@ -5,7 +5,7 @@ const createTemplate = (onSubmit) => html`
     <section id="create">
         <div class="form">
             <h2>New Item</h2>
-            <form @submit="${onSubmit}" class="create-form">
+            <form @submit="${onSubmit}" class="create-form" method="post">
                 <input
                         type="text"
                         name="name"
@@ -100,6 +100,7 @@ export function createView(ctx) {
             }
 
             await createOffer(offer);
+            console.log(offer);
 
             event.target.reset();
             ctx.page.redirect('/offers');

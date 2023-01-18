@@ -24,7 +24,7 @@ const catalogTemplate = (offers, page, pages) => html`
 
 export const offerCard = (offer) => html`
     <li class="offer">
-        <img src="${offer.imageUrl}" alt="example1"/>
+        <img src="${offer.imageUrl}" alt="image"/>
         <p>
             <strong><span class="title">${offer.name}</span></strong>
         </p>

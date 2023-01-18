@@ -942,6 +942,17 @@
      * @return {Object} Original value with resulting ID under _id property.
      */
     function add(collection, data) {
+
+      if (collection === 'offers') {
+        const codeExist = [...collections.get(collection).values()].find(elem => elem.code === data.code);
+        if(codeExist) {
+          return {
+            status: 400,
+            message: "Barcode already exists"
+          }
+        }
+      }
+
       const record = assignClean({ _ownerId: data._ownerId }, data);
 
       let targetCollection = collections.get(collection);
