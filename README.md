@@ -4,10 +4,10 @@ To start the project first open the back-end application.
 - In the src/main/resources/application.properties add your correct username and password to connect with the database
 - start the application
 
-Second open the front-end application and run in the main directory:
+Then open the front-end application and run in the main directory:
 
 - npm install
-- node .\front-end\server\server.js
+- node .\server\server.js
 - npm run start
 
 Application can be accessed at: http://localhost:3000
